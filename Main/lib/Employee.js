@@ -18,4 +18,4 @@ class Employee {
   }
 }
 
-modules.exports = Employee
+module.exports = Employee

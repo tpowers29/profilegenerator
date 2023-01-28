@@ -1,39 +1,30 @@
-const Word = require('../lib/Word');
-const Letter = require('../lib/Letter');
+const Intern = require("../lib/Intern");
 
-describe('Word class', () => {
-  it('Creates an array of Letter objects', () => {
-    const word = new Word('hi');
+describe('Intern class', () => {
+  it('Checking attributes name,id email, schoolName', () => {
+    const testIntern = new Intern('Tyler', 1, "tylerpowerst@aol.com", "UNH");
 
-    expect(word.letters).toEqual(
-      expect.arrayContaining([expect.objectContaining({ char: 'h' })])
-    );
+    expect(testIntern.schoolName).toEqual("UNH")
+    expect(testIntern.name).toEqual("Tyler")
+    expect(testIntern.email).toEqual("tylerpowerst@aol.com")
+    expect(testIntern.id).toEqual(1)
 
-    expect(word.letters[0]).toBeInstanceOf(Letter);
+
   });
 
-  describe('guessLetter', () => {
-    it('Correct guess returns true', () => {
-      expect(new Word('fish').guessLetter('i')).toBe(true);
-    });
 
-    it('Incorrect guess returns false', () => {
-      expect(new Word('fish').guessLetter('o')).toBe(false);
-    });
-  });
+  it('Checking methods, getName, getId, getEmail, getSchoolname, getRole', () => {
+    const testIntern = new Intern('Tyler', 1, "tylerpowerst@aol.com", "UNH");
 
-  describe('guessedCorrectly ', () => {
-    it('returns true if all letters are correct', () => {
-      const word = new Word('hi');
-      word.guessLetter('h');
-      word.guessLetter('i');
-      expect(word.guessedCorrectly()).toBe(true);
-    });
-    it('returns false if at least one letter is incorrect', () => {
-      const word = new Word('hi');
-      word.guessLetter('h');
-      word.guessLetter('a');
-      expect(word.guessedCorrectly()).toBe(false);
-    });
-  });
+    expect(testIntern.getSchoolName()).toEqual("UNH")
+    expect(testIntern.getName()).toEqual("Tyler")
+    expect(testIntern.getEmail()).toEqual("tylerpowerst@aol.com")
+    expect(testIntern.getId()).toEqual(1)
+    expect(testIntern.getRole()).toBe("Intern")
+
+  })
+
 });
+
+
+
